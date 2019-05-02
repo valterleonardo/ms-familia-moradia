@@ -65,7 +65,7 @@ public class FamiliasResource {
 			return new ResponseEntity<>(familia, HttpStatus.OK);
 		} catch (Exception e) {
 			log.info("RequestService: /familias/{} - objeto não encontrado", id);
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
 	
@@ -88,7 +88,7 @@ public class FamiliasResource {
 			return new ResponseEntity<>(familias, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 	}
