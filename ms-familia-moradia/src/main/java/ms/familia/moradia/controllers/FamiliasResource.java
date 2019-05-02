@@ -1,29 +1,25 @@
 package ms.familia.moradia.controllers;
 
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import ms.familia.moradia.dict.StatusFamilias;
 import ms.familia.moradia.models.Familias;
 import ms.familia.moradia.models.FamiliasContempladas;
 import ms.familia.moradia.repository.TodasFamilias;
 import ms.familia.moradia.repository.TodasFamiliasContempladas;
-import ms.familia.moradia.services.ProcessarPontuacao;
 import ms.familia.moradia.services.ProcessarPontuacaoPattern;
 import ms.familia.moradia.services.SendKafka;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value="/api")
@@ -35,8 +31,6 @@ public class FamiliasResource {
 	private TodasFamilias todasFamilias;
 	@Autowired
 	private TodasFamiliasContempladas todasFamiliasContempladas;
-	@Autowired
-	private static ProcessarPontuacao processarPontuacao;
 	@Autowired
 	private static ProcessarPontuacaoPattern processarPontuacaoPattern;
 	@Autowired
@@ -67,17 +61,7 @@ public class FamiliasResource {
 			log.info("RequestService: /familias/{} - objeto não encontrado", id);
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-	}
-	
-	@GetMapping("/familias/pontuacao")
-	public List<FamiliasContempladas> familiasPossiveisPontuacao() throws  NoSuchBeanDefinitionException {		
-		List<Familias> familias = todasFamilias.findByStatus(StatusFamilias.CADASTRO_VALIDO.ordinal());		
-		List<FamiliasContempladas> familiasContempladas = processarPontuacao.processaFamilias(familias);
-		todasFamiliasContempladas.saveAll(familiasContempladas);
-		
-		log.info("RequestService: /familias/pontuacao. Familias selecionadas: {} - FamiliasContempladas: {}",familias.size(), familiasContempladas.size());
-		return familiasContempladas;
-	}
+	}	
 	
 	@GetMapping("/familias/Contempladas")
 	public ResponseEntity<List<FamiliasContempladas>> familiasContempadasTodas() {		
