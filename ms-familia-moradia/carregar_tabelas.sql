@@ -1,5 +1,4 @@
 insert into familia (id, nome, status) values (1,'Bortoletto','0');
-insert into familia (id, nome, status) values (2,'Digix','1');
 insert into familia (id, nome, status) values (3,'Tropeço','2');
 insert into familia (id, nome, status) values (4,'Brasil','3');
 insert into familia (id, nome, status) values (5,'TI','0');
@@ -20,11 +19,6 @@ insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (6,'Sand
 insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (7,'Luis Felipe',1,'24-12-1992',1);
 insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (8,'Valter Leonardo',1,'20-05-1991',1);
 
-insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (9,'Vinicius',2,'02-06-1963',2);
-insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (10,'Ana',0,'10-02-1963',2);
-insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (11,'Aline',1,'24-12-1992',2);
-insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (12,'Raphael',1,'20-05-1991',2);
-
 insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (13,'MS',2,'02-06-1963',4);
 insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (14,'MT',0,'10-02-1963',4);
 insert into pessoa (id, nome, tipo, data_nascimento, familia_id) values (15,'RIO',1,'24-12-1992',4);
@@ -43,15 +37,11 @@ insert into renda (id, pessoa_id, valor) values (5,5,2500);
 insert into renda (id, pessoa_id, valor) values (6,6,2500);
 insert into renda (id, pessoa_id, valor) values (7,7,2500);
 insert into renda (id, pessoa_id, valor) values (8,8,2500);
-insert into renda (id, pessoa_id, valor) values (9,9,3500);
+insert into renda (id, pessoa_id, valor) values (9,9,1500);
 insert into renda (id, pessoa_id, valor) values (10,10,1500);
-insert into renda (id, pessoa_id, valor) values (11,11,2500);
-insert into renda (id, pessoa_id, valor) values (12,12,500);
-insert into renda (id, pessoa_id, valor) values (13,13,1500);
-insert into renda (id, pessoa_id, valor) values (14,14,1500);
-insert into renda (id, pessoa_id, valor) values (15,15,0);
-insert into renda (id, pessoa_id, valor) values (16,16,0);
-insert into renda (id, pessoa_id, valor) values (17,17,500);
-insert into renda (id, pessoa_id, valor) values (18,18,100);
-insert into renda (id, pessoa_id, valor) values (19,19,20);
-insert into renda (id, pessoa_id, valor) values (20,20,10);
+insert into renda (id, pessoa_id, valor) values (11,11,0);
+insert into renda (id, pessoa_id, valor) values (12,12,0);
+insert into renda (id, pessoa_id, valor) values (13,13,500);
+insert into renda (id, pessoa_id, valor) values (14,14,100);
+insert into renda (id, pessoa_id, valor) values (15,15,20);
+insert into renda (id, pessoa_id, valor) values (16,16,10);
